@@ -29,33 +29,74 @@
  *                                  Functions                                  *
  *******************************************************************************/
 
-/*
- * Function to initialize the timer and give a periodic interrupt every specified time in milliseconds
- */
+/*****************************************************************************************
+ * Function Name: SysTick_Init
+ * Parameters (in): a_TimeInMilliSeconds - Time in milliseconds for periodic interrupts
+ * Parameters (out): None
+ * Return value: None
+ * Description: Initializes SysTick timer with the given time in milliseconds using interrupts.
+ *****************************************************************************************/
+
 void SysTick_Init(uint16 a_TimeInMilliSeconds);
-/*
- * Delay Function using polling technique and SysTick timer
- */
+
+/*****************************************************************************************
+ * Function Name: SysTick_StartBusyWait
+ * Parameters (in): a_TimeInMilliSeconds - Time in milliseconds for the delay
+ * Parameters (out): None
+ * Return value: None
+ * Description: Starts SysTick in busy-wait mode for the specified time in milliseconds.
+ *****************************************************************************************/
+
 void SysTick_StartBusyWait(uint16 a_TimeInMilliSeconds);
-/*
- * Handler for SysTick interrupt use to call the call-back function.
- */
+
+/*****************************************************************************************
+ * Function Name: SysTick_Handler
+ * Parameters (in): None
+ * Parameters (out): None
+ * Return value: None
+ * Description: SysTick interrupt handler that calls the callback function.
+ *****************************************************************************************/
+
 void SysTick_Handler(void);
-/*
- * Function to setup the SysTick Timer call back to be executed in SysTick Handler.
- */
+
+/*****************************************************************************************
+ * Service Name: SysTick_SetCallBack
+ * Parameters (in): Ptr2Func - Pointer to the callback function
+ * Parameters (out): None
+ * Return value: None
+ * Description: Sets the callback function to be called in the SysTick interrupt.
+ *****************************************************************************************/
+
 void SysTick_SetCallBack(volatile void (*Ptr2Func)(void));
-/*
- * Stop the SysTick Timer
- */
+
+/*****************************************************************************************
+ * Function Name: SysTick_Stop
+ * Parameters (in): None
+ * Parameters (out): None
+ * Return value: None
+ * Description: Stops the SysTick timer by disabling it.
+ *****************************************************************************************/
+
 void SysTick_Stop(void);
-/*
- * Start / Resume the SysTick Timer
- */
+
+/*****************************************************************************************
+ * Service Name: SysTick_Start
+ * Parameters (in): None
+ * Parameters (out): None
+ * Return value: None
+ * Description: Starts the SysTick timer with system clock and enables interrupts.
+ *****************************************************************************************/
+
 void SysTick_Start(void);
-/*
- * Function to De-initialize the SysTick Timer.
- */
+
+/*****************************************************************************************
+ * Function Name: SysTick_DeInit
+ * Parameters (in): None
+ * Parameters (out): None
+ * Return value: None
+ * Description: De-initializing SysTick by disabling it and clearing all registers.
+ *****************************************************************************************/
+
 void SysTick_DeInit(void);
 
 #endif
