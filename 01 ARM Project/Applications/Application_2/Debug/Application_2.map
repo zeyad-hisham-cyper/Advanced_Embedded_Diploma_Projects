@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.7                     
 ******************************************************************************
->> Linked Sat Dec  7 22:54:45 2024
+>> Linked Sat Dec  7 23:06:52 2024
 
 OUTPUT FILE NAME:   <Application_2.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000017d5
