@@ -16,19 +16,18 @@ void NVIC_EnableIRQ(NVIC_IRQType IRQ_Num)
 {
     uint8 bit_num = IRQ_Num % 32;
     uint8 reg_num = IRQ_Num / 32;
-    *((volatile uint32*) (NVIC_EN0_REG + (reg_num * 4))) |= (1 << bit_num);
+    *((volatile uint32*) (((uint32) &NVIC_EN0_REG) + (reg_num * 4))) |= (1 << bit_num);
 }
 void NVIC_DisableIRQ(NVIC_IRQType IRQ_Num)
 {
     uint8 bit_num = IRQ_Num % 32;
     uint8 reg_num = IRQ_Num / 32;
-    *((volatile uint32*) (NVIC_DIS0_REG + (reg_num * 4))) |= (1 << bit_num);
+    *((volatile uint32*) (((uint32) &NVIC_DIS0_REG) + (reg_num * 4))) |= (1 << bit_num);
 }
 void NVIC_SetPriorityIRQ(NVIC_IRQType IRQ_Num,
                          NVIC_IRQPriorityType IRQ_Priority)
 {
-    volatile uint32 *priority_reg = (volatile uint32*) (NVIC_PRI0_REG
-            + ((IRQ_Num / 4) * 4));
+    volatile uint32 *priority_reg = (volatile uint32*) (((uint32)&NVIC_PRI0_REG)+ ((IRQ_Num / 4) * 4));
     uint8 IRQ_priority_location = (IRQ_Num % 4) * 8;
     *priority_reg = (*priority_reg
             & ~(IRQ_PIRIORITY_BITS_MASK << IRQ_priority_location))
