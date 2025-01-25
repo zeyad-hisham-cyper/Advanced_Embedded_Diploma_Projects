@@ -37,7 +37,7 @@
 
 /* The memory class is used within type definitions, where no memory
    qualifier can be specified */
-#define TYPEDEF
+#define TYPEDEF           typedef
 
 /* This is used to define the void pointer to zero definition */
 #define NULL_PTR          ((void *)0)
@@ -50,5 +50,10 @@
 
 /* This is used to define the abstraction of compiler keyword static */
 #define STATIC            static
+
+/* This is used to define the abstraction of compiler keyword continue */
+#define CONTINUE          continue
+
+
 
 #endif

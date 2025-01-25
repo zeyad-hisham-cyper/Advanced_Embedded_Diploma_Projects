@@ -34,34 +34,34 @@
  *******************************************************************************/
 
 /* Description: Data type for the symbolic name of a port pin number */
-typedef uint8 Port_PinType;
+TYPEDEF uint8 Port_PinType;
 
 /* Description: Data type for the symbolic name of a port number */
-typedef uint8 Port_PortType;
+TYPEDEF uint8 Port_PortType;
 
 /* Description: Different port pin modes */
-typedef uint8 Port_PinModeType;
+TYPEDEF uint8 Port_PinModeType;
 
 /* Description: Enum for possible pin directions  */
-typedef enum{
+TYPEDEF enum{
     PORT_PIN_IN,
     PORT_PIN_OUT
 }Port_PinDirectionType;
 
 /* Description: Enum to hold internal resistor type for PIN */
-typedef enum
+TYPEDEF enum
 {
-    OFF,PULL_UP,PULL_DOWN
+    DISABLE_INTERNAL_RES,PULL_UP,PULL_DOWN
 }Port_InternalResistorType;
 
 /* Description: Enum to hold the pin level value */
-typedef enum{
+TYPEDEF enum{
     PORT_PIN_LEVEL_HIGH,
     PORT_PIN_LEVEL_LOW
 }Port_PinLevelValueType;
 
 /* Description: Enum contain the modes list*/
-typedef enum{
+TYPEDEF enum{
     PORT_PIN_MODE_ADC,
     PORT_PIN_MODE_CAN,
     PORT_PIN_MODE_DIO,
@@ -86,7 +86,7 @@ typedef enum{
  *  8. Is the mode changeable during the runtime --> True or False
  */
 
-typedef struct
+TYPEDEF struct
 {
     Port_PortType port_num;
     Port_PinType pin_num;
@@ -103,7 +103,7 @@ typedef struct
  * Range:       Array of structures
  * Description: Contain the initializing data for all configured pins
  */
-typedef struct{
+TYPEDEF struct{
    Port_ConfigPinType Pins[PORT_CONFIGURED_PINS];
 }Port_ConfigType;
 

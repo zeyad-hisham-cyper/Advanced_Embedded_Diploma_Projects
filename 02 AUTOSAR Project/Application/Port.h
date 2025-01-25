@@ -20,9 +20,9 @@ s
 #define PORT_INSTANCE_ID                    (0U)
 
 /* Module Version 1.0.0 */
-#define PORT_SW_RELEASE_MAJOR_VERSION               (1U)
-#define PORT_SW_RELEASE_MINOR_VERSION               (0U)
-#define PORT_SW_RELEASE_PATCH_VERSION               (0U)
+#define PORT_SW_RELEASE_MAJOR_VERSION       (1U)
+#define PORT_SW_RELEASE_MINOR_VERSION       (0U)
+#define PORT_SW_RELEASE_PATCH_VERSION       (0U)
 
 /* AUTOSAR Version 4.0.3*/
 #define PORT_AR_RELEASE_MAJOR_VERSION       (4U)
@@ -90,7 +90,7 @@ s
 #define PORT_SET_PIN_MODE_SID               (uint8)0x04
 
 /******************************************************************************
- *                              DET Error Codes                              *
+ *                              DET Error Codes                               *
  ******************************************************************************/
 
 /* Invalid Port Pin ID requested */
@@ -114,5 +114,85 @@ s
 /*APIs called with a Null Pointer*/
 #define PORT_E_PARAM_POINTER                (uint8)0x10
 
+/******************************************************************************
+ *                            Function Prototypes                             *
+ ******************************************************************************/
+/******************************************************************************
+ * Service name     : Port_Init
+ * Service ID[hex]  : 0x00
+ * Sync/Async       : Synchronous
+ * Reentrancy       : Non Reentrant
+ * Parameters (in)  : ConfigPtr --> Pointer to configuration set.
+ * Parameters(inout): None
+ * Parameters (out) : None
+ * Return value     : None
+ * Description      : Initializes the Port Driver module.
+ ******************************************************************************/
+void Port_Init(const Port_ConfigType* ConfigPtr);
 
+/******************************************************************************
+ * Service name     : Port_SetPinDirection
+ * Service ID[hex]  : 0x01
+ * Sync/Async       : Synchronous
+ * Reentrancy       : Reentrant
+ * Parameters (in)  : Pin       --> Port Pin ID number
+                      Direction --> Port Pin Direction
+ * Parameters(inout): None
+ * Parameters (out) : None
+ * Return value     : None
+ * Description      : Sets the port pin direction
+ ******************************************************************************/
+#if (PORT_SET_PIN_DIRECTION_API == STD_ON)
+void Port_SetPinDirection(Port_PinType Pin, Port_PinDirectionType Direction);
 #endif
+
+/******************************************************************************
+* Service Name      : Port_RefreshPortDirection
+* Service ID[hex]   : 0x02
+* Sync/Async        : Synchronous
+* Reentrancy        : Not Reentrant
+* Parameters (in)   : None
+* Parameters (inout): None
+* Parameters (out)  : None
+* Return value      : None
+* Description       : Refreshes port direction.
+*******************************************************************************/
+void Port_RefreshPortDirection(void);
+
+/******************************************************************************
+* Service Name      : Port_GetVersionInfo
+* Service ID[hex]   : 0x03
+* Sync/Async        : Synchronous
+* Reentrancy        : Not Reentrant
+* Parameters (in)   : None
+* Parameters (inout): None
+* Parameters (out)  : versioninfo --> Pointer to where to store the version
+*                                     information of this module.
+* Return value      : None
+* Description       : Returns the version information of this module.
+*******************************************************************************/
+#if (PORT_VERSION_INFO_API == STD_ON)
+void Port_GetVersionInfo( Std_VersionInfoType* versioninfo );
+#endif
+
+/************************************************************************************
+* Service Name      : Port_SetPinMode
+* Service ID[hex]   : 0x04
+* Sync/Async        : Synchronous
+* Reentrancy        : Reentrant
+* Parameters (in)   : Pin - Port Pin ID number
+*                           Mode - New Port Pin mode to be set on port pin.
+* Parameters (inout): None
+* Parameters (out)  : None
+* Return value      : None
+* Description       : Sets the port pin mode.
+************************************************************************************/
+#if (PORT_SET_PIN_MODE_API == STD_ON)
+void Port_SetPinMode( Port_PinType Pin, Port_PinModeType Mode );
+#endif
+
+/* Extern PB structures to be used by Port and other modules */
+extern const Port_ConfigType Pins_configuration;
+
+#endif /* PORT_H */
+
