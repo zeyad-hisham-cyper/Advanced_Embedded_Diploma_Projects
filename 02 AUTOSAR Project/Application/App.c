@@ -14,21 +14,15 @@
 #include "Led.h"
 #include "Dio.h"
 #include "Mcu.h"
-
+#include "Port.h"
 /* Description: Task executes once to initialize all the Modules */
 void Init_Task(void)
 {
     /* Initialize Mcu Driver */
     Mcu_Init();
-
+    Port_Init(&Pins_configuration);
     /* Initialize Dio Driver */
     Dio_Init(&Dio_Configuration);
-
-    /* Initialize LED Driver */
-    Led_Init();
-
-    /* Initialize Button Driver */
-    Button_Init();
 }
 
 /* Description: Task executes every 20 Mili-seconds to check the button state */
@@ -47,13 +41,14 @@ void Led_Task(void)
 void App_Task(void)
 {
     static uint8 button_previous_state = BUTTON_RELEASED;
-    static uint8 button_current_state  = BUTTON_RELEASED;
+    static uint8 button_current_state = BUTTON_RELEASED;
 
     button_current_state = Button_GetState(); /* Read the button state */
 
     /* Only Toggle the led in case the current state of the switch is pressed
-     * and the previous state is released */ 
-    if((button_current_state == BUTTON_PRESSED) && (button_previous_state == BUTTON_RELEASED))
+     * and the previous state is released */
+    if ((button_current_state == BUTTON_PRESSED)
+            && (button_previous_state == BUTTON_RELEASED))
     {
         Led_Toggle();
     }

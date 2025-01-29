@@ -94,17 +94,8 @@ TYPEDEF struct
     Port_InternalResistorType resistor;
     Port_PinLevelValueType initial_value;
     Port_PinModeType mode;
-    boolean pin_direction_changeable;
-    boolean pin_mode_changeable;
+    uint8 pin_direction_changeable;
+    uint8 pin_mode_changeable;
 }Port_ConfigPinType;
-/*
- * Name:        Port_ConfigType
- * Type:        Structure
- * Range:       Array of structures
- * Description: Contain the initializing data for all configured pins
- */
-TYPEDEF struct{
-   Port_ConfigPinType Pins[PORT_CONFIGURED_PINS];
-}Port_ConfigType;
 
 #endif /* PORT_TYPES_H_ */

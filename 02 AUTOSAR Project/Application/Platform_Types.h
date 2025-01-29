@@ -69,7 +69,6 @@
 #endif
 
 typedef unsigned char         boolean;
-
 typedef unsigned char         uint8;          /*           0 .. 255             */
 typedef signed char           sint8;          /*        -128 .. +127            */
 typedef unsigned short        uint16;         /*           0 .. 65535           */

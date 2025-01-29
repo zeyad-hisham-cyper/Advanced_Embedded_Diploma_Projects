@@ -4,7 +4,6 @@
  * Description: Header File for AUTOSAR PORT Driver
  * Author: Zeyad Hisham
  */
-s
 #ifndef PORT_H_
 #define PORT_H_
 
@@ -113,6 +112,17 @@ s
 
 /*APIs called with a Null Pointer*/
 #define PORT_E_PARAM_POINTER                (uint8)0x10
+
+
+/*
+ * Name:        Port_ConfigType
+ * Type:        Structure
+ * Range:       Array of structures
+ * Description: Contain the initializing data for all configured pins
+ */
+TYPEDEF struct{
+   Port_ConfigPinType Pins[PORT_CONFIGURED_PINS];
+}Port_ConfigType;
 
 /******************************************************************************
  *                            Function Prototypes                             *
