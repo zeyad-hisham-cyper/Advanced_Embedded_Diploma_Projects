@@ -6,33 +6,12 @@
  *
  * Description: Source file for Led Module.
  *
- * Author: Mohamed Tarek
+ * Author: Zeyad Hisham
  ******************************************************************************/
 #include "Port.h"
 #include "Dio.h"
 #include "Led.h"
 
-/* LED Configurations Structure */
-/*static Port_ConfigType  g_LED_Config;*/
-
-/*********************************************************************************************/
-/* Description: Called by the LED_Init function (only) used to fill the led configurations structure
-static void Led_FillConfigurations(void)
-{
-    g_LED_Config.port_num  = LED_PORT;
-    g_LED_Config.pin_num   = LED_PIN_NUM;
-    g_LED_Config.direction = OUTPUT;
-    g_LED_Config.resistor  = OFF;
-    g_LED_Config.initial_value  = LED_OFF;
-}*/
-
-/*********************************************************************************************
-void Led_Init(void)
-{
-    Led_FillConfigurations();
-    Port_SetupGpioPin(&g_LED_Config);
-}
-*/
 /*********************************************************************************************/
 void Led_SetOn(void)
 {

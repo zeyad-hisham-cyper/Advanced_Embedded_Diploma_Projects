@@ -6,7 +6,7 @@
  *
  * Description: Source file for Os Scheduler.
  *
- * Author: Mohamed Tarek
+ * Author: Zeyad Hisham
  ******************************************************************************/
 
 #include "Os.h"

@@ -6,7 +6,7 @@
  *
  * Description: Header file for Pre-Compiler configuration used by Led Module
  *
- * Author: Mohamed Tarek
+ * Author: Zeyad Hisham
  ******************************************************************************/
 
 #ifndef LED_CFG_H_

@@ -6,7 +6,7 @@
  *
  * Description: Source file for TM4C123GH6PM Microcontroller - Mcu Driver
  *
- * Author: Mohamed Tarek
+ * Author: Zeyad Hisham
  ******************************************************************************/
 
 #include "tm4c123gh6pm_registers.h"

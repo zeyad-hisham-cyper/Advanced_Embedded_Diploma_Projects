@@ -6,7 +6,7 @@
  *
  * Description: Header file for Pre-Compiler configuration used by Button Module
  *
- * Author: Mohamed Tarek
+ * Author: Zeyad Hisham
  ******************************************************************************/
 
 #ifndef BUTTON_CFG_H_

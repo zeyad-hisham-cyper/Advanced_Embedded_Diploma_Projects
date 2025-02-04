@@ -6,7 +6,7 @@
  *
  * Description: Header file for Led Module.
  *
- * Author: Mohamed Tarek
+ * Author: Zeyad Hisham
  ******************************************************************************/
 #ifndef LED_H
 #define LED_H
